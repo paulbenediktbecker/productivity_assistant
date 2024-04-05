@@ -1,4 +1,4 @@
-from .secret import secret
+from . import secret
 import json
 from PIL import Image
 import requests
