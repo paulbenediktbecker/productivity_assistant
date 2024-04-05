@@ -1,3 +1,5 @@
+text_in_Block = input()
+
 import requests
 import json
 import pandas as pd
@@ -6,7 +8,7 @@ from urllib.error import URLError
 import time
 from progress.bar import IncrementalBar
 from tools.picture_fetcher import picture_fetcher
-from tools.secret import secret
+from tools import secret
 import clipboard
 import copy
 
@@ -26,7 +28,7 @@ headers = {
     "Notion-Version": "2021-05-13"
 }
 
-
+secret.token
 status_todo = {
                 "id":"^OE@",
                 "type":"select",
@@ -206,9 +208,7 @@ def anki():
 
 if __name__ =="__main__":
 
-    
 
-    text_in_Block = input()
     text_in_Block = text_in_Block.lower()
     
     if text_in_Block.startswith("anki"): #anki mode
