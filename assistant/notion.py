@@ -12,36 +12,35 @@ headers = {
 }
 
 
-status_todo = {
-                "id":"^OE@",
-                "type":"select",
-                "select":{
-                    "id":"1"
-                    ,"name":"To Do",
-                    "color":"red"}
-            }
-
-status_today = {
-      "id": "^OE@",
-      "type": "select",
-      "select": {
-        "id": "9b329245-fc7d-4257-97d4-0cda03c24dda",
-        "name": "TODAY",
-        "color": "blue"
-      }
-    }
-
-status = {
-            'id': '%5EOE%40', 
-            'type': 'select', 
-            'select': {
-                'id': '1',
-                'name': 'To Do', 
-                'color': 'green'
-            }
+           
+def add_db_today(text):
+    status_today = {
+        "id": "^OE@",
+        "type": "select",
+        "select": {
+            "id": "9b329245-fc7d-4257-97d4-0cda03c24dda",
+            "name": "TODAY",
+            "color": "blue"
         }
+    }
+    add_db_entry(text, status_today)
 
-def add_db_entry(text):
+
+def add_db_default(text):
+
+    status = {
+                'id': '%5EOE%40', 
+                'type': 'select', 
+                'select': {
+                    'id': '1',
+                    'name': 'To Do', 
+                    'color': 'green'
+                }
+            }
+    
+    add_db_entry(text, status)
+
+def add_db_entry(text,status):
         data = {
             "parent": { "database_id": secret.db_id},
             "properties": {

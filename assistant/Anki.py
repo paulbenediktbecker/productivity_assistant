@@ -142,7 +142,7 @@ def create_all_cards(cards,decks,chosen_deck):
 def get_clipboard():
     return clipboard.paste()
 
-def anki():
+def anki(text):
     data = get_clipboard()
     data = data.split("\n") # split by line
 
