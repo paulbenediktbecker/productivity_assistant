@@ -21,7 +21,7 @@ class picture_fetcher:
     def __init__(self):
         self.has_loaded_semester = False
         self.page_id =secret.semester_page_id
-        self.token = secret.token
+        self.token = secret.notion_synthavo_token
         self.headers = {
             "Authorization": "Bearer " + self.token,
             "Notion-Version": "2021-08-16"
