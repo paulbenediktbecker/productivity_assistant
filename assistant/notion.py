@@ -1,9 +1,11 @@
-
 from . import secret
+
 import json 
 import requests
 from .param_db import NotionSynthavoParamDB as synthavodb
 from .param_db import NotionPrivateParamDB as privatedb
+
+
 
 
 class NotionBase(object):
@@ -23,7 +25,9 @@ class NotionBase(object):
      
 class NotionPrivate(NotionBase):
      
-    def __init__(self, db_id, token) -> None:
+    def __init__(self) -> None:
+        db_id = secret.notion_private_db_id
+        token = secret.notion_private_token
         super().__init__(db_id, token)
 
            
@@ -58,11 +62,28 @@ class NotionPrivate(NotionBase):
             response = requests.request("POST", self.url, headers=self.headers, data=data)
 
             print(response)
+            
+    def _privateNotion_inner(self,text):
+        from Assistant import Assistant
+        
+        text = text[len(text.split(" ")[0]) +1:] # remove first word 
+        split = text.split(" ")
+        if len(split) > 1:
+            second_word = split[1]
+            inner_trigger_dict = {
+                "aa":self.add_db_today,
+                "a":self.add_db_default,
+            }
+            
+            return Assistant.run_function_dict(text,inner_trigger_dict, second_word,self.add_db_default)
+        return self.add_db_default(text)
 
 class NotionSynthavo(NotionBase):
      
-    def __init__(self, db_id, token) -> None:
-          super().__init__(db_id, token)
+    def __init__(self) -> None:
+        db_id = secret.notion_synthavo_db_id
+        token = secret.notion_synthavo_token
+        super().__init__(db_id, token)
 
     def standard_processing(self,text_in_Block):
     
