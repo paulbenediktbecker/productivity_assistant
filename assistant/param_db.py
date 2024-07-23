@@ -48,6 +48,15 @@ class NotionSynthavoParamDB():
     STATUS_DEFAULT = status_general
 
 
+class NotionTorrParamDB():
+    PRIO_TODAY = {'id': 'kxUR', 'type': 'select', 'select': {'id': 'Wu;[', 'name': 'Today', 'color': 'gray'}}
+    PRIO_HIGH = {'id': 'kxUR', 'type': 'select', 'select': {'id': 'JrDp', 'name': 'High', 'color': 'pink'}}
+    PRIO_MID = {'id': 'kxUR', 'type': 'select', 'select': {'id': 'bz{X', 'name': 'Mid', 'color': 'yellow'}}
+    PRIO_FAST = {'id': 'kxUR', 'type': 'select', 'select': {'id': 'S>A]', 'name': 'Fast', 'color': 'purple'}}
+    PRIO_NOW = {'id': 'kxUR', 'type': 'select', 'select': {'id': 'Z|JL', 'name': 'Now', 'color': 'blue'}}
+    PRIO_LOW = {'id': 'kxUR', 'type': 'select', 'select': {'id': '@`ku', 'name': 'Low', 'color': 'green'}}
+
+    PRIO_DEFAULT = PRIO_TODAY
 
 class NotionPrivateParamDB():
     status_today = {

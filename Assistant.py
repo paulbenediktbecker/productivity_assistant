@@ -71,7 +71,7 @@ class Assistant(object):
                 "works_isolated": True,
             },
         } 
-        self.default_action = self.run_notion_synthavo_standard_processing
+        self.default_action = self.run_notion_torr_standard_processing
     
     def run(self,text_in_Block):
         text = text_in_Block.lower()
@@ -138,6 +138,11 @@ class Assistant(object):
     def run_notion_synthavo_standard_processing(self,text):
         from assistant.notion import NotionSynthavo
         return NotionSynthavo().standard_processing(text)
+    
+    def run_notion_torr_standard_processing(self,text):
+        from assistant.notion import NotionTorr
+        return NotionTorr().standard_processing(text)
+    
     
     def run_notion_private_inner(self,text):
         from assistant.notion import NotionPrivate

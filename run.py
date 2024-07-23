@@ -12,7 +12,7 @@ def run_cmds_in_new_process(cmds):
 
     cmds = [
         "python",
-        "Assistant.py",
+        "/Users/paulbe/git/productivity_assistant/Assistant.py",
         cmds
     ]
 
@@ -27,6 +27,8 @@ def run_cmds_in_new_process(cmds):
             'close_fds': True,  # close stdin/stdout/stderr on child
             'creationflags': flags,
         }
+    else:
+        pkwargs = {}
        
 
     p = subprocess.Popen(cmds,start_new_session=True, **pkwargs)
